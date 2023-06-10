@@ -2,16 +2,61 @@
 <html>
     <head>
         <meta charset="UTF-8"></meta>
-        <title>小威遊記</title>
+        <title>可愛的練習用網頁</title>
+        <style>
+            #Time {
+                position: fixed;
+                top: 5%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+        <style>
+            #h1 {
+                position: fixed;
+                top: 3%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    
     </head>
     <body>
-        <h1>無情紀錄 2023/6/9開始紀錄</h1>
-        <h2>第一章  你好,我也好</h2>
-        <p>見色忘友王八蛋,我們這行不看出生,但你是真他媽<b>畜生</b></p>
-        <hr>
-        <h3>第二章  這就是個紀錄</h1>
-        <p>哥哥我就在這紀錄,看你什麼時候翻船,沒翻船算你<i>nb</i> <3</p>
-        <h3>第三章  紀錄的開始-熱奶寶</h3>
-        <img src="圖片/熱奶寶.png"/>
+        <h1 id="h1">當前時間</h1>
+        <font size="7"><p id="Time"></p></font>
+        
+        <h2><font size="6">簡介</font></h2>
+        <p>這只是我做好玩的網頁,請各位看官不要太嫌棄XD</p>
+        
+        <footer><font size="6">反正最底</font></footer>
+        <font size="5"><a href="page1.html">老威遊記<br></a></font>
+        <font size="5"><a href="page2.html">動畫推薦(?</a></font>
+
+        <script>
+            // 更新時間的函數
+            function updateTime() {
+                // 取得當前時間
+                var currentTime = new Date();
+    
+                // 取得小時、分鐘和秒數
+                var hours = currentTime.getHours();
+                var minutes = currentTime.getMinutes();
+                var seconds = currentTime.getSeconds();
+    
+                // 格式化時間，確保兩位數
+                var formattedTime = addLeadingZero(hours) + ':' + addLeadingZero(minutes) + ':' + addLeadingZero(seconds);
+    
+                // 將時間顯示在網頁上
+                document.getElementById('Time').innerHTML = formattedTime;
+            }
+    
+            // 將數字補零函數
+            function addLeadingZero(number) {
+                return (number < 10 ? '0' : '') + number;
+            }
+    
+            // 每秒更新一次時間
+            setInterval(updateTime, 1000);
+        </script>
     </body>
 </html>
